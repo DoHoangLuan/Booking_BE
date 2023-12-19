@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema(
+const MenuBookingSchema = new mongoose.Schema(
   {
     nameBooking: {
       type: mongoose.Schema.Types.ObjectId,
@@ -24,6 +24,6 @@ const UserSchema = new mongoose.Schema(
   { timeStane: true },
 );
 
-const UserModel = mongoose.model('menuBooking', UserSchema);
+const MenuBookingModel = mongoose.model('menuBooking', MenuBookingSchema);
 
-export default UserModel;
+export default MenuBookingModel;

@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema(
+const BookingSchema = new mongoose.Schema(
   {
     nameRestaurant: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'restaurant',
       required: true,
     },
-    username: {
+    Bookingname: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'user',
+      ref: 'Booking',
       required: true,
     },
     nameMenu: {
@@ -29,6 +29,6 @@ const UserSchema = new mongoose.Schema(
   { timeStane: true },
 );
 
-const UserModel = mongoose.model('booking', UserSchema);
+const BookingModel = mongoose.model('booking', BookingSchema);
 
-export default UserModel;
+export default BookingModel;

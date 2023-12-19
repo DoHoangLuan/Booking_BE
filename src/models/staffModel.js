@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema(
+const StaffSchema = new mongoose.Schema(
   {
-    username: {
+    Staffname: {
       type: String,
       required: true,
       min: 3,
@@ -48,6 +48,6 @@ const UserSchema = new mongoose.Schema(
   { timeStane: true },
 );
 
-const UserModel = mongoose.model('staff', UserSchema);
+const StaffModel = mongoose.model('staff', StaffSchema);
 
-export default UserModel;
+export default StaffModel;
