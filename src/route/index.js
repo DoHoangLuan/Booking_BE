@@ -1,9 +1,13 @@
 import express from 'express';
-import routerAuth from './auth.route';
+import routerUserAuth from './authUser.route';
+import apiPath from '@/constants';
+import bookingRoute from './booking.route';
+import { authMiddleware } from '@/middlewares/auth.middlewares';
+import routerAuthStaff from './authStaff.route';
 
 const router = express.Router();
 
-
-
-router.use('/auth', routerAuth)
+router.use(apiPath.auth, routerUserAuth);
+router.use(apiPath.booking, authMiddleware, bookingRoute);
+router.use(apiPath.auth, routerAuthStaff);
 export default router;

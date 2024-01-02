@@ -1,5 +1,6 @@
-const { default: UserModel } = require("@/models/userModel")
+import StaffModel from "@/models/staffModel"
 
+const { default: UserModel } = require("@/models/userModel")
 
 export const findUserByEmail = async (email) => {
     try {
@@ -9,14 +10,6 @@ export const findUserByEmail = async (email) => {
         throw error
     }
 }
-// export const findUserByUsername = async (username) => {
-//     try {
-//         const existingUserName = await UserModel.findOne({ username })
-//         return existingUserName
-//     } catch (error) {
-//         return error
-//     }
-// }
 export const saveNewUser = async (email, username, password) => {
     try {
         const newUser = new UserModel({
@@ -28,5 +21,27 @@ export const saveNewUser = async (email, username, password) => {
     } catch (error) {
         console.log(error);
     }
+}
 
+export const findStaffByEmail = async (email) => {
+    try {
+        const existingStaff = await StaffModel.findOne({email})
+        return existingStaff
+    }
+    catch(error) {
+        throw error
+    }
+}
+export const saveNewStaff = async (email, username, password,role) => {
+    try {
+        const newStaff = new StaffModel({
+            email,
+            username,
+            password,
+            role
+        })
+        return newStaff.save()
+    } catch (error) {
+        console.log(error);
+    }
 }

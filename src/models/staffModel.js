@@ -1,6 +1,7 @@
+import { StaffRole } from '@/enums/staff';
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema(
+const StaffSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -24,17 +25,10 @@ const UserSchema = new mongoose.Schema(
       min: 6,
       required: true,
     },
-    profilePicture: {
+    role : {
       type: String,
-      default: '',
-    },
-    coverPicture: {
-      type: String,
-      default: '',
-    },
-    isAdmin: {
-      type: Boolean,
-      default: false,
+      default: StaffRole.STAFF,
+      required:true,
     },
     desc: {
       type: String,
@@ -48,6 +42,6 @@ const UserSchema = new mongoose.Schema(
   { timeStane: true },
 );
 
-const UserModel = mongoose.model('staff', UserSchema);
+const StaffModel = mongoose.model('staff', StaffSchema);
 
-export default UserModel;
+export default StaffModel;

@@ -1,34 +1,37 @@
+import { BookingStatus } from '@/enums/booking';
+import { formatISO } from 'date-fns';
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema(
+const BookingSchema = new mongoose.Schema(
   {
     nameRestaurant: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'restaurant',
       required: true,
     },
-    username: {
+    userName: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user',
       required: true,
     },
-    nameMenu: {
+    createByStaff: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'menu',
+      ref: 'staff',
+      required: true,
+    },
+    status: {
+      type: String,
+      default: BookingStatus.WAITING,
       required: true,
     },
     date: {
       type: Date,
-      default: Date.now,
-    },
-    city: {
-      type: String,
-      max: 50,
+      default: formatISO(Date.now()),
     },
   },
   { timeStane: true },
 );
 
-const UserModel = mongoose.model('booking', UserSchema);
+const BookingModel = mongoose.model('booking', BookingSchema);
 
-export default UserModel;
+export default BookingModel;
