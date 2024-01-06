@@ -3,19 +3,17 @@ import mongoose from 'mongoose';
 const BookingSchema = new mongoose.Schema(
   {
     nameRestaurant: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       ref: 'restaurant',
       required: true,
     },
-    Bookingname: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Booking',
+    nameBooking: {
+      type: String,
+      ref: 'booking',
       required: true,
     },
-    nameMenu: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'menu',
-      required: true,
+    size: {
+      type: Number,
     },
     date: {
       type: Date,
@@ -26,9 +24,9 @@ const BookingSchema = new mongoose.Schema(
       max: 50,
     },
   },
-  { timeStane: true },
+  { timestamps: true },
 );
 
-const BookingModel = mongoose.model('booking', BookingSchema);
+const BookingModel = mongoose.model('bookings', BookingSchema, 'bookings');
 
 export default BookingModel;

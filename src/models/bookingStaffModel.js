@@ -20,6 +20,6 @@ const BookingStaffSchema = new mongoose.Schema(
   { timeStane: true },
 );
 
-const BookingStaffModel = mongoose.model('bookingStaff', BookingStaffSchema);
+const BookingStaffModel = mongoose.model('bookingStaff', BookingStaffSchema, 'bookingStaff');
 
 export default BookingStaffModel;

@@ -10,7 +10,6 @@ const routerAuth = express.Router();
 
 routerAuth.post('/login', async (req, res) => {
   const { email, password } = req.body;
-
   try {
     if (!email || !password) {
       return res.status(400).json({
@@ -20,13 +19,13 @@ routerAuth.post('/login', async (req, res) => {
     const existingUser = await findUserByEmail(email);
     if (!existingUser) {
       return res.status(401).json({
-        message: 'User chưa tồn tại',
+        message: 'User not found',
       });
     }
     const isMatchPassword = await bcrypt.compare(password, existingUser.password);
     if (!isMatchPassword) {
       return res.status(401).json({
-        message: 'Mật khẩu không đúng ',
+        message: 'Wrong password',
       });
     }
     const jwtPayLoad = {
@@ -34,10 +33,11 @@ routerAuth.post('/login', async (req, res) => {
       id: existingUser.id,
       email: existingUser.email,
     };
-    const token = jwt.sign(jwtPayLoad, process.env.SECRET_KEY, {
+    const SECRET_KEY = process.env.SECRET_KEY || 'trinvm';
+    const token = jwt.sign(jwtPayLoad, SECRET_KEY, {
       expiresIn: '1h',
     });
-    res.status(200).json({
+    return res.status(200).json({
       accessToken: token,
       message: 'Login Successfully',
     });
@@ -50,11 +50,11 @@ routerAuth.post('/login', async (req, res) => {
 });
 
 routerAuth.post('/register', async (req, res) => {
-  console.log(req);
   try {
     const { email, username, password } = req.body;
     if ((!email || !username, !password)) {
       return res.status(400).json({
+        status: 'Error',
         message: 'Missing required key',
       });
     }
@@ -62,6 +62,7 @@ routerAuth.post('/register', async (req, res) => {
     console.log('🚀 ~ file: auth.route.js:65 ~ routerAuth.post ~ existingUser:', existingUser);
     if (existingUser) {
       return res.status(400).json({
+        status: 'Fail',
         message: 'User has a already',
       });
     }
@@ -71,11 +72,12 @@ routerAuth.post('/register', async (req, res) => {
 
     await saveNewUser(email, username, hashedPassword);
 
-    res.status(200).json({
-      message: 'API Register',
+    return res.status(200).json({
+      status: 'Success',
+      message: 'Register success',
     });
   } catch (err) {
-    res.status(500).json({
+    return res.status(500).json({
       message: err,
     });
   }

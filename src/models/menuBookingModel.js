@@ -24,6 +24,6 @@ const MenuBookingSchema = new mongoose.Schema(
   { timeStane: true },
 );
 
-const MenuBookingModel = mongoose.model('menuBooking', MenuBookingSchema);
+const MenuBookingModel = mongoose.model('menuBooking', MenuBookingSchema, 'menuBooking');
 
 export default MenuBookingModel;
