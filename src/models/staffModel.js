@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 const StaffSchema = new mongoose.Schema(
   {
-    username: {
+    Staffname: {
       type: String,
       required: true,
       min: 3,

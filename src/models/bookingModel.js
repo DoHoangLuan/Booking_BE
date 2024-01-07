@@ -5,33 +5,26 @@ import mongoose from 'mongoose';
 const BookingSchema = new mongoose.Schema(
   {
     nameRestaurant: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       ref: 'restaurant',
       required: true,
     },
-    userName: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'user',
-      required: true,
-    },
-    createByStaff: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'staff',
-      required: true,
-    },
-    status: {
+    nameBooking: {
       type: String,
-      default: BookingStatus.WAITING,
+      ref: 'booking',
       required: true,
+    },
+    size: {
+      type: Number,
     },
     date: {
       type: Date,
       default: formatISO(Date.now()),
     },
   },
-  { timeStane: true },
+  { timestamps: true },
 );
 
-const BookingModel = mongoose.model('booking', BookingSchema);
+const BookingModel = mongoose.model('bookings', BookingSchema, 'bookings');
 
 export default BookingModel;

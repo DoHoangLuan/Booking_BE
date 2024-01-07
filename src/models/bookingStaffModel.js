@@ -1,22 +1,18 @@
 import mongoose from 'mongoose';
 
-const MenuBookingSchema = new mongoose.Schema(
+const BookingStaffSchema = new mongoose.Schema(
   {
     nameBooking: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'booking',
       required: true,
     },
-    nameMenu: {
+    staff: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'menu',
+      ref: 'staff',
       required: true,
     },
     desc: {
-      type: String,
-      max: 50,
-    },
-    city: {
       type: String,
       max: 50,
     },
@@ -24,6 +20,6 @@ const MenuBookingSchema = new mongoose.Schema(
   { timeStane: true },
 );
 
-const MenuBookingModel = mongoose.model('menuBooking', MenuBookingSchema, 'menuBooking');
+const BookingStaffModel = mongoose.model('bookingStaff', BookingStaffSchema, 'bookingStaff');
 
-export default MenuBookingModel;
+export default BookingStaffModel;

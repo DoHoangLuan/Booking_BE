@@ -9,3 +9,4 @@
   'singleAttributePerLine': true,
   'noImplicitAny': false,
 }
+

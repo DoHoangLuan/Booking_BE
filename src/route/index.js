@@ -1,13 +1,12 @@
 import express from 'express';
-import routerUserAuth from './authUser.route';
-import apiPath from '@/constants';
-import bookingRoute from './booking.route';
-import { authMiddleware } from '@/middlewares/auth.middlewares';
-import routerAuthStaff from './authStaff.route';
+
+import routerAuth from './auth.route';
+import routerBooking from './booking.route';
+import routerMenu from './menu.route';
 
 const router = express.Router();
 
-router.use(apiPath.auth, routerUserAuth);
-router.use(apiPath.booking, authMiddleware, bookingRoute);
-router.use(apiPath.auth, routerAuthStaff);
+router.use('/auth', routerAuth);
+router.use('/menu', routerMenu);
+router.use('/booking', routerBooking);
 export default router;
