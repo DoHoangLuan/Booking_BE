@@ -1,3 +1,5 @@
+import { BookingStatus } from '@/enums/booking';
+import { formatISO } from 'date-fns';
 import mongoose from 'mongoose';
 
 const BookingSchema = new mongoose.Schema(
@@ -17,11 +19,7 @@ const BookingSchema = new mongoose.Schema(
     },
     date: {
       type: Date,
-      default: Date.now,
-    },
-    city: {
-      type: String,
-      max: 50,
+      default: formatISO(Date.now()),
     },
   },
   { timestamps: true },
