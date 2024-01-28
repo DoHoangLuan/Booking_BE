@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema(
+const MenuSchema = new mongoose.Schema(
   {
     nameMenu: {
       type: String,
@@ -29,6 +29,6 @@ const UserSchema = new mongoose.Schema(
   { timeStane: true },
 );
 
-const UserModel = mongoose.model('menu', UserSchema);
+const MenuModel = mongoose.model('menu', MenuSchema);
 
-export default UserModel;
+export default MenuModel;

@@ -8,6 +8,6 @@ import routerAuthStaff from './authStaff.route';
 const router = express.Router();
 
 router.use(apiPath.auth, routerUserAuth);
-router.use(apiPath.booking, userMiddleware, bookingRoute);
+router.use(apiPath.booking, authMiddleware, bookingRoute);
 router.use(apiPath.auth, routerAuthStaff);
 export default router;

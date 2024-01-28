@@ -1,12 +1,9 @@
-import apiPath from  "@/constants"
-import bookingController from "./../controllers/bookingController";
-import express from "express";
+import express from 'express';
 
+import { createBooking } from '@/controllers/booking.controller';
 
-const bookingRoute = express.Router()
+const routerBooking = express.Router();
 
-bookingRoute.post(apiPath.index,bookingController.createBooking)
-bookingRoute.get(apiPath.id,bookingController.getBookingById)
+routerBooking.post('/createBooking', createBooking);
 
-
-export default bookingRoute
+export default routerBooking;

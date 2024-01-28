@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 
-export const userMiddleware = (req, res, next) => {
+export const authMiddleware = (req, res, next) => {
     const token = req.headers["access-token"]
     if (!token) {
         res.status(400).json({

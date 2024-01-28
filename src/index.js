@@ -1,6 +1,11 @@
-import "dotenv/config"
+import 'dotenv/config';
+
+import cors from 'cors';
 import express from 'express';
+
 import { connectToDatabase } from './configs/db.config';
+import router from './route';
+import { errorHandlingMiddleware } from './middlewares/handleError.middleware';
 import router from "./route";
 import cors from 'cors'
 import isPermissionMdw from "./middlewares/role.middleware";
@@ -12,8 +17,8 @@ connectToDatabase();
 
 app.use(express.json());
 app.use(cors())
-app.use('/api/v1',isPermissionMdw, router)
+app.use('/api/v1', router)
 
 app.listen(PORT, () => {
-    console.log(`Server is running at PORT ${PORT}`);
+  console.log(`Server is running at PORT ${PORT}`);
 });
