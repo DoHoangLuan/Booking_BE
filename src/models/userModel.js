@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema(
     },
     phone: {
       type: Number,
-      required: false,
+      max:20
     },
     email: {
       type: String,
@@ -31,10 +31,6 @@ const UserSchema = new mongoose.Schema(
     coverPicture: {
       type: String,
       default: '',
-    },
-    isAdmin: {
-      type: Boolean,
-      default: false,
     },
     desc: {
       type: String,

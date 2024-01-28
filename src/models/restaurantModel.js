@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const RestaurantSchema = new mongoose.Schema(
   {
-    nameRestaurant: {
+    restaurantName: {
       type: String,
       required: true,
       min: 3,
@@ -14,23 +14,19 @@ const RestaurantSchema = new mongoose.Schema(
       required: true,
     },
     phone: {
-      type: Number,
+      type: String,
       required: true,
     },
-    profilePicture: {
-      type: String,
+    photos: {
+      type: [String],
       default: '',
     },
-    desc: {
+    description: {
       type: String,
       max: 50,
-    },
-    city: {
-      type: String,
-      max: 50,
-    },
+    }
   },
-  { timeStane: true },
+  { timestamps: false },
 );
 
 const RestaurantModel = mongoose.model('restaurant', RestaurantSchema);
