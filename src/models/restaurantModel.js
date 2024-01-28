@@ -11,11 +11,9 @@ const RestaurantSchema = new mongoose.Schema(
     },
     address: {
       type: String,
-      required: true,
     },
     phone: {
       type: String,
-      required: true,
     },
     photos: {
       type: [String],
@@ -24,7 +22,7 @@ const RestaurantSchema = new mongoose.Schema(
     description: {
       type: String,
       max: 50,
-    }
+    }  
   },
   { timestamps: false },
 );

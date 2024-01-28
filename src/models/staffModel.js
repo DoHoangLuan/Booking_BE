@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 const StaffSchema = new mongoose.Schema(
   {
-    username: {
+    staffname: {
       type: String,
       required: true,
       min: 3,
@@ -12,7 +12,7 @@ const StaffSchema = new mongoose.Schema(
     },
     phone: {
       type: Number,
-      required: true,
+      required: false,
     },
     email: {
       type: String,
@@ -20,19 +20,23 @@ const StaffSchema = new mongoose.Schema(
       max: 50,
       unique: true,
     },
+    restaurantId: {
+      type:String
+    },
     password: {
       type: String,
       min: 6,
       required: true,
     },
-    role : {
+    role: {
       type: String,
-      default: StaffRole.STAFF,
-      required:true,
     },
     desc: {
       type: String,
       max: 50,
+    },
+    token: {
+      type: String,
     },
     city: {
       type: String,
