@@ -38,7 +38,6 @@ class AuthController {
         message: 'Login Successfully',
       });
     } catch (error) {
-      console.log('🚀 ~ file: auth.route.js:50 ~ routerAuth.post ~ error:', error);
       res.status(500).json({
         message: error,
       });
@@ -47,8 +46,9 @@ class AuthController {
 
   async RegisterUser(req, res) {
     try {
-      const { email, username, password } = req.body;
-      if ((!email || !username, !password)) {
+      const { email, username, password} = req.body;
+
+      if (!email || !username || !password ) {
         return res.status(400).json({
           message: 'Missing required key',
         });
@@ -74,6 +74,8 @@ class AuthController {
       });
     }
   }
+
+  
 
   async Me(req, res) {
     const { id } = req.users;
