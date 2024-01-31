@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+
 const restaurant = ['http://localhost:3001/api/v1/auth/register-staff','http://localhost:3001/api/v1/auth/login-staff'];
 const staff = [];
 
