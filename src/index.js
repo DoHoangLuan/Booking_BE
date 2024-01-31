@@ -5,7 +5,8 @@ import express from 'express';
 
 import { connectToDatabase } from './configs/db.config';
 import { errorHandlingMiddleware } from './middlewares/handleError.middleware';
-import router from './route';
+import isPermissionMdw from "./middlewares/role.middleware";
+import router from "./route";
 
 const app = express();
 const PORT = 3001;
