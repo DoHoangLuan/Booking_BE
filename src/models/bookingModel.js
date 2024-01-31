@@ -1,4 +1,3 @@
-import { BookingStatus } from '@/enums/booking';
 import { formatISO } from 'date-fns';
 import mongoose from 'mongoose';
 

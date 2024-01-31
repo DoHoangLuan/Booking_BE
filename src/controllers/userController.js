@@ -1,6 +1,7 @@
-import UserModel from '@/models/userModel.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+
+import UserModel from '@/models/userModel.js';
 import { findUserByEmail, saveNewUser } from '@/service/authService';
 
 class AuthController {
@@ -46,8 +47,8 @@ class AuthController {
 
   async RegisterUser(req, res) {
     try {
-      const { email, username, password} = req.body;
-      if ((!email || !username, !password )) {
+      const { email, username, password } = req.body;
+      if ((!email || !username, !password)) {
         return res.status(400).json({
           message: 'Missing required key',
         });

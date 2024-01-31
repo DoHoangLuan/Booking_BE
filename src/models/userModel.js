@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema(
     },
     phone: {
       type: Number,
-      max:20
+      max: 20,
     },
     email: {
       type: String,

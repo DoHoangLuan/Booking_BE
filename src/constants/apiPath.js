@@ -5,7 +5,7 @@ export const apiPath = {
   id: '/:id',
   user: '/user',
 
-  booking:"/booking",
+  booking: '/booking',
 
   index: '/',
   auth: '/auth',
@@ -17,6 +17,4 @@ export const apiPath = {
   login_staff: '/login-staff',
   register_staff: '/register-staff',
   me_staff: '/me-staff',
-
-
 };

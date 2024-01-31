@@ -1,7 +1,9 @@
 import bcrypt from 'bcrypt';
-import { findStaffByEmail, saveNewStaff } from './../service/authService';
-import { StaffRole } from './../enums/staff';
+
 import StaffModel from '@/models/staffModel';
+
+import { StaffRole } from './../enums/staff';
+import { findStaffByEmail, saveNewStaff } from './../service/authService';
 
 class StaffController {
   async LoginStaff(req, res) {
@@ -87,9 +89,6 @@ class StaffController {
   }
 }
 
-const staffController = new StaffController()
+const staffController = new StaffController();
 
-export default staffController
-
-
-
+export default staffController;

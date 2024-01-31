@@ -1,5 +1,6 @@
 import BookingModel from '@/models/bookingModel';
 import UserModel from '@/models/userModel';
+
 import RestaurantModel from './../models/restaurantModel';
 
 class BookingController {

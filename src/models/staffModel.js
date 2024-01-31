@@ -1,5 +1,6 @@
-import { StaffRole } from '@/enums/staff';
 import mongoose from 'mongoose';
+
+import { StaffRole } from '@/enums/staff';
 
 const StaffSchema = new mongoose.Schema(
   {
@@ -25,10 +26,10 @@ const StaffSchema = new mongoose.Schema(
       min: 6,
       required: true,
     },
-    role : {
+    role: {
       type: String,
       default: StaffRole.STAFF,
-      required:true,
+      required: true,
     },
     desc: {
       type: String,
